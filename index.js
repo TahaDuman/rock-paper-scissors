@@ -1,4 +1,4 @@
-/* getting computer choice (improve this)*/
+/* getting computer choice (try to improve this)*/
 function getComputerChoice() {
   let randomNumber = Math.ceil(Math.random() * 3)
   if (randomNumber === 1) {
