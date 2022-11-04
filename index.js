@@ -38,5 +38,11 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let computerSelection = getComputerChoice()
-let playerSelection = "Paper"
+let playerSelection = "paper"
+/* making the playerSelection case-insensitive */
+playerSelection = playerSelection.toLocaleLowerCase()
+playerSelection =
+  playerSelection.charAt(0).toLocaleUpperCase() + playerSelection.slice(1)
+
+console.log(playerSelection)
 console.log(playRound(playerSelection, computerSelection))
