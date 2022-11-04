@@ -1,3 +1,4 @@
+/* getting computer choice */
 function getComputerChoice() {
   let randomNumber = Math.ceil(Math.random() * 3)
   if (randomNumber === 1) {
@@ -6,8 +7,9 @@ function getComputerChoice() {
     return "Paper"
   } else return "Scissors"
 }
-
+/* rps cases and returns */
 function playRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice()
   if (playerSelection === computerSelection) {
     return "Draw"
   }
@@ -37,12 +39,17 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function game() {
+  for (i = 0; i < 5; i++) {
+    console.log(playRound(playerSelection, computerSelection))
+  }
+}
+
 let computerSelection = getComputerChoice()
 let playerSelection = "paper"
-/* making the playerSelection case-insensitive */
+/* making the playerSelection case insensitive */
 playerSelection = playerSelection.toLocaleLowerCase()
 playerSelection =
   playerSelection.charAt(0).toLocaleUpperCase() + playerSelection.slice(1)
 
-console.log(playerSelection)
-console.log(playRound(playerSelection, computerSelection))
+console.log(game())
