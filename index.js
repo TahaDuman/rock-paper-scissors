@@ -7,7 +7,7 @@ function getComputerChoice() {
     return "Paper"
   } else return "Scissors"
 }
-/* rps cases and returns */
+/* rock-paper-scissors cases and returns */
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice()
   if (playerSelection === computerSelection) {
@@ -46,7 +46,7 @@ function game() {
 }
 
 let computerSelection = getComputerChoice()
-let playerSelection = "paper"
+let playerSelection = prompt("Rock / Paper / Scissors")
 /* making the playerSelection case insensitive */
 playerSelection = playerSelection.toLocaleLowerCase()
 playerSelection =
