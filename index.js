@@ -10,15 +10,33 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "Draw"
-  } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-    return "You Lose! Paper beats Rock"
-  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-    return "You Win! Rock beats Scissors"
-  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-    return "You Win! Paper beats Rock"
+  }
+
+  if (playerSelection === "Rock") {
+    if (computerSelection === "Paper") {
+      return "You Lose! Paper beats Rock"
+    } else if (computerSelection === "Scissors") {
+      return "You Win! Rock beats Scissors"
+    }
+  }
+
+  if (playerSelection === "Paper") {
+    if (computerSelection === "Rock") {
+      return "You Win! Paper beats Rock"
+    } else if (computerSelection === "Scissors") {
+      return "You Lose! Scissors beats Paper"
+    }
+  }
+
+  if (playerSelection === "Scissors") {
+    if (computerSelection === "Rock") {
+      return "You Lose! Rock beats Scissors"
+    } else if (computerSelection === "Paper") {
+      return "You Win! Paper beats Scissors"
+    }
   }
 }
 
 let computerSelection = getComputerChoice()
-let playerSelection = "Rock"
+let playerSelection = "Paper"
 console.log(playRound(playerSelection, computerSelection))
