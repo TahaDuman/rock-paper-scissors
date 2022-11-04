@@ -11,7 +11,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice()
   if (playerSelection === computerSelection) {
-    return "Draw"
+    return "Draw! Try again"
   }
 
   if (playerSelection === "Rock") {
