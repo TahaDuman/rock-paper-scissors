@@ -1,3 +1,10 @@
+/* dom stuff */
+const rockBtn = document.getElementById("rock")
+const paperBtn = document.getElementById("paper")
+const scissBtn = document.getElementById("scissors")
+const results = document.getElementById("results")
+const score = document.getElementById("score")
+const announce = document.getElementById("announce")
 /* getting computer choice (try to improve this)*/
 function getComputerChoice() {
   let randomNumber = Math.ceil(Math.random() * 3)
@@ -16,40 +23,65 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === "Rock") {
     if (computerSelection === "Paper") {
+      compResult++
       return "You Lose! Paper beats Rock"
     } else {
+      playerResult++
       return "You Win! Rock beats Scissors"
     }
   }
 
   if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
+      playerResult++
       return "You Win! Paper beats Rock"
     } else {
+      compResult++
       return "You Lose! Scissors beats Paper"
     }
   }
 
   if (playerSelection === "Scissors") {
     if (computerSelection === "Rock") {
+      compResult++
       return "You Lose! Rock beats Scissors"
     } else {
-      return "You Win! Paper beats Scissors"
+      playerResult++
+      return "You Win! Scissors beats Paper"
     }
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound(playerSelection, computerSelection))
+rockBtn.addEventListener("click", () => {
+  results.innerText = playRound("Rock")
+  countScore()
+})
+
+paperBtn.addEventListener("click", () => {
+  results.innerText = playRound("Paper")
+  countScore()
+})
+
+scissBtn.addEventListener("click", () => {
+  results.innerText = playRound("Scissors")
+  countScore()
+})
+let computerSelection = getComputerChoice()
+/* counting */
+let playerResult = 0
+let compResult = 0
+function countScore() {
+  score.innerHTML = `score: You = ${playerResult} Computer = ${compResult}`
+  if (playerResult == 5) {
+    announce.innerText = "You win!"
+  } else if (compResult == 5) {
+    announce.innerText = "You loose"
   }
 }
-
-let computerSelection = getComputerChoice()
-let playerSelection = prompt("Rock / Paper / Scissors")
+/* console rps codes */
+/* let playerSelection = prompt("Rock / Paper / Scissors") */
 /* making the playerSelection case insensitive */
-playerSelection = playerSelection.toLocaleLowerCase()
-playerSelection =
+/* playerSelection = playerSelection.toLocaleLowerCase() */
+/*playerSelection =
   playerSelection.charAt(0).toLocaleUpperCase() + playerSelection.slice(1)
-
-console.log(game())
+*/
