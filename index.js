@@ -69,6 +69,12 @@ scissBtn.addEventListener("click", () => {
   results.innerText = playRound("Scissors")
   countScore()
 })
+resetBtn.addEventListener("click", () => {
+  compResult = 0
+  playerResult = 0
+  announce.innerText = ""
+  score.innerHTML = `score: You = ${playerResult} Computer = ${compResult}`
+})
 let computerSelection = getComputerChoice()
 /* counting */
 let playerResult = 0
