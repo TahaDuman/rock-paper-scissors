@@ -1,3 +1,5 @@
+/* fix anonunce still showing after new round started */
+
 /* dom stuff */
 const rockBtn = document.getElementById("rock")
 const paperBtn = document.getElementById("paper")
@@ -5,6 +7,7 @@ const scissBtn = document.getElementById("scissors")
 const results = document.getElementById("results")
 const score = document.getElementById("score")
 const announce = document.getElementById("announce")
+const resetBtn = document.getElementById("reset")
 /* getting computer choice (try to improve this)*/
 function getComputerChoice() {
   let randomNumber = Math.ceil(Math.random() * 3)
@@ -73,11 +76,18 @@ let compResult = 0
 function countScore() {
   score.innerHTML = `score: You = ${playerResult} Computer = ${compResult}`
   if (playerResult == 5) {
-    announce.innerText = "You win!"
+    announce.innerText = "You won!"
+    announce.style.cssText = "color: greenyellow;"
+    playerResult = 0
+    compResult = 0
   } else if (compResult == 5) {
-    announce.innerText = "You loose"
+    announce.innerText = "You lost"
+    announce.style.cssText = "color: red;"
+    playerResult = 0
+    compResult = 0
   }
 }
+
 /* console rps codes */
 /* let playerSelection = prompt("Rock / Paper / Scissors") */
 /* making the playerSelection case insensitive */
